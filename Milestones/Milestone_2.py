@@ -1,4 +1,4 @@
-################################## MILESTONE 2 ####################################################
+######################################### MILESTONE 2 ####################################################
 
 #In this program, the user will be able to compare the different methods to integrate Kepler orbits.
 

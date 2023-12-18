@@ -7,6 +7,9 @@ import math as math
 
 ################################ Dynamic Systems Integration ####################################
 
+## In this program, the user will be able to plot different dynamic systems by solving them solving
+## the Cauchy problem using different time schemes.
+
 ## Examples of dynamic systems
 
 # Chaotic systems with k<1
