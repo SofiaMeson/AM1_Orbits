@@ -1,0 +1,1 @@
+This program defines various dynamic systems and solves the Cauchy problem for each of them by using different time schemes.
