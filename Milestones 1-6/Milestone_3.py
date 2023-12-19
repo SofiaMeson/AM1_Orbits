@@ -54,7 +54,6 @@ if scheme == 1:
     plt.plot(t, cauchy_error[:,0], color = 'blue' )
     plt.xlabel('t')
     plt.ylabel('Error Kepler orbit, Euler')
-    plt.axis('equal')
     plt.title('Euler time scheme')  
     plt.grid()
 
@@ -68,7 +67,6 @@ if scheme == 1:
     plt.plot(log_n, log_e, color = 'blue' )
     plt.xlabel('log(N)')
     plt.ylabel('log(E)')
-    plt.axis('equal')
     plt.title('Euler time scheme convergence rate')  
     plt.grid()
     plt.show()
@@ -86,7 +84,6 @@ elif scheme == 2:
     plt.xlabel('t')
     plt.ylabel('Error Kepler orbit, inverse Euler')
     plt.title('Inverse Euler time scheme')  
-    plt.axis('equal')
     plt.grid()
 
     
@@ -99,7 +96,6 @@ elif scheme == 2:
     plt.plot(log_n, log_e, color = 'green' )
     plt.xlabel('log(N)')
     plt.ylabel('log(E)')
-    plt.axis('equal')
     plt.title('Inverse Euler time scheme convergence rate')  
     plt.grid()
     plt.show()
@@ -119,7 +115,6 @@ elif scheme == 3:
     plt.xlabel('t')
     plt.ylabel('Error Kepler orbit, CN')
     plt.title('Crank-Nicolson time scheme')  
-    plt.axis('equal')
     plt.grid()
 
     
@@ -133,7 +128,6 @@ elif scheme == 3:
     plt.plot(log_n, log_e, color = 'red' )
     plt.xlabel('log(N)')
     plt.ylabel('log(E)')
-    plt.axis('equal')
     plt.title('Crank-Nicolson time scheme convergence rate')  
     plt.grid()
     plt.show()
@@ -151,7 +145,6 @@ elif scheme == 4:
     plt.xlabel('t')
     plt.ylabel('Error Kepler orbit, RK4')
     plt.title('Runge-Kutta order 4 time scheme')  
-    plt.axis('equal')
     plt.grid()
 
     
@@ -164,7 +157,6 @@ elif scheme == 4:
     plt.plot(log_n, log_e, color = 'yellow' )
     plt.xlabel('log(N)')
     plt.ylabel('log(E)')
-    plt.axis('equal')
     plt.title('Runge-Kutta order 4 time scheme convergence rate')  
     plt.grid()
     

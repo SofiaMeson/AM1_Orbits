@@ -1,7 +1,9 @@
 ###############################TIME SCHEMES######################################################
 
 from scipy.optimize import newton
-
+from numpy import zeros, matmul, size, linspace
+from numpy.linalg import norm
+from Physics.ERK_functions import butcher, StepSize, RK_stages
 
 # Euler method
 def Euler(F, U, dt, t):
@@ -37,6 +39,41 @@ def LF(F, U, dt, t):
     return U + dt * F(U_mediopaso, t)
 
 
+# Embedded Runge-Kutta (order 3)
+
+def ERK(F, U, dt, t):
+
+    tol = 1e-9
+    
+    # Calculates Runge-Kutta of order 1 and order 2 
+    stage1 = RK_stages(1, U, t, dt, F)  
+    stage2 = RK_stages(2, U, t, dt, F) 
+    
+    # Define the butcher array
+    orders, Ns, a, b, bs, c = butcher()
+    
+    # Determine the minimum step size between dt and the stepsize, which compares the error with the tolerance
+    h = min(dt, StepSize(stage1 - stage2, tol, dt,  min(orders)))
+    N_n = int(dt/h) + 1        # Number of steps to update solution U2
+    n_dt = dt / int(N_n)           
+    stage1 = U
+    stage2 = U
+
+    for i in range(N_n):
+        time = t + i * n_dt
+        stage1 = stage2
+        stage2 = RK_stages(1, stage1, time, n_dt, F)
+        
+    # Final solution
+    U2 = stage2
+    
+    ierr = 0
+
+    return U2
+
+
+
+
 def choose_integration_method():
     print("Choose an integration method:")
     print("1. Euler")
@@ -44,6 +81,7 @@ def choose_integration_method():
     print("3. Runge-Kutta 4")
     print("4. Crank-Nicolson")
     print("5. Leap-Frog")
+    print("6. Embedded Runge-Kutta")   
 
     choice = input("Enter the number corresponding to the desired method: ")
     
@@ -57,6 +95,8 @@ def choose_integration_method():
         return CN
     elif choice == '5':
         return LF
+    elif choice == '6':
+        return ERK
     else:
         print("Invalid choice. Using default method (Euler).")
         return Euler   

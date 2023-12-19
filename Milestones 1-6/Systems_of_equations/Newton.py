@@ -1,9 +1,9 @@
-######################################### NEWTON SOLVER ####################################################
+######################################### NEWTON SOLVER AND JACOBIAN ####################################################
 
 
-from numpy import array, zeros
+from numpy import array, zeros, size
 from numpy.linalg import norm  
-from Linear_systems import Gauss 
+from Systems_of_equations.Linear_eq import Gauss 
 
 
 def Newton(F, x0):  
@@ -33,25 +33,21 @@ _____________________________________________________________________
       Dx = Gauss( J, b) 
       x[:] = x[:] + Dx  # WARNING x = x + Dx (does not work)
       
-      print("x =", x, "iteration =", iteration, "Newton norm(Dx) = ",  norm(Dx) ) 
+      #print("x =", x, "iteration =", iteration, "Newton norm(Dx) = ",  norm(Dx) ) 
 
   return x 
 
   
-def Jacobian( F, x ):  
+def Jacobian(F, U):
+	N = size(U)
+	Jac = zeros([N,N])
+	t = 1e-10
 
-   Dx = 1e-3     
-   Dxi = zeros( len(x) ) # WARNING Dxi = x does not work 
-   J = zeros( (len(x), len(x)) )
-       
-   for i, _ in enumerate(x):
-
-       Dxi[:] = 0
-       Dxi[i] = Dx
-       J[:,i] =  ( F(x + Dxi) - F(x - Dxi) )/(2*Dx)  
-   
-   return J    
-
+	for i in range(N):
+		xj = zeros(N)
+		xj[i] = t
+		Jac[:,i] = (F(U + xj) - F(U - xj))/(2*t)
+	return Jac
 
 
 
@@ -62,4 +58,4 @@ def f(x):
     return array( [ x**2 - 1 ] ) 
 
 x0 = array( [ 0.1 ])
-print(" solution =", Newton(f, x0 ) )
+#print(" solution =", Newton(f, x0 ) )

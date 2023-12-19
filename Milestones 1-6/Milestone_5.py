@@ -89,8 +89,8 @@ r = reshape(Us[:, :, :, 0], (N + 1, Nb, Nc))     # Each of the body's final posi
 
 
 #Graph 3D
-fig = plt.figure()
-ax1 = fig.add_subplot(111,projection='3d')
+fig1 = plt.figure()
+ax1 = fig1.add_subplot(111,projection='3d')
 col = ["blue","red","green","purple","yellow","orange","black"]
 for i in range(Nb):
     ax1.plot_wireframe(r[:,i,0].reshape((-1, 1)), r[:,i,1].reshape((-1, 1)), r[:,i,2].reshape((-1, 1)), color = col[i])
@@ -99,8 +99,8 @@ ax1.set_xlabel("x")
 ax1.set_ylabel("y")
 ax1.set_zlabel("z")
 plt.grid()
-plt.show()
 
+plt.figure(2)
 #Graph 2D
 for i in range(Nb):
    plt.plot(r[:, i, 0], r[:, i, 1], color = col[i])
