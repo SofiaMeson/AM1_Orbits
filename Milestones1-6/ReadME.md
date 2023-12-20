@@ -25,10 +25,10 @@ This repository is divided into different files. All the Python programs have a 
    - [*Kepler.py*](Physics/Kepler.py): it contains the function that represents differential operator in a Kepler orbit.
    - [*Lagrange_Points*](Physics/Lagrange_Points.py): it contains the functions that calculate Lagrange points and their stability.
    - [*Nbody_functions.py*](Physics/Nbody_functions.py): it contains the function that characterizes the N body problem with pointers.
-   - [*Oscillator.py*](Physics/Oscillator.py): it contains the function that represents the  differential operator of the harmonic oscillator system.
+   - [*Oscillator.py*](Physics/Oscillator.py): it contains the function that represents the  differential operator of the harmonic oscillator system. It also contains a function that defines the oscillator system's matrix.
 
 4. **Systems_of_equations**: this file contains the programs (these programs were developed by Juan A. Hernández):
-   - [*Linear_eq.py*](Systems_of_equations/Linear_eq.py): it contains the function for solving linear equations using Gauss
+   - [*Linear_eq.py*](Systems_of_equations/Linear_eq.py): it contains the function for solving linear equations using Gauss.
    - [*Newton.py*](Systems_of_equations/Newton.py): it contains the functions for the Newton solver and the Jacobian.
      
 5. [**Errors.py**](Errors.py): this module defines two functions to calculate the error of the Cauchy problem programmed in the *Milestone 2* and the convergence rate of the obtained solution.
