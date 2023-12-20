@@ -94,6 +94,18 @@ This repository is divided into different files. All the Python programs have a 
 
 - [**Milestone 6**](Milestone_6.py): "*Lagrange points and their stability*"
 
+  Initial conditions are given, but they can be changed. 5 Lagrange points will be calculated, but this can also be changed. When observing the results, it becomes clear that:
+  
+   - _LP1_: the obtained eigenvalues are: [ 2.93206148 -2.93206148  0.  0. ]. The presence of both positive and negative real parts indicates that the Lagrange point has mixed stability. The Lagrange point is likely to be a saddle point, meaning it has directions of stability and instability. Objects near this Lagrange point may experience perturbations that can lead to either stable or unstable behavior depending on the direction of the perturbation. This is confirmed by observing the orbit for this Lagrange point, as it showcases a mix between stable and inestable behaviour.
+
+   - _LP2_: the obtained eigenvalues are: [ 3.4e-07  3.4e-07 -3.4e-07 -3.4e-07 ]. The real parts of the eigenvalues are close to zero but not strictly negative. This suggests that the Lagrange point is on the boundary between stability and instability. Small perturbations may cause the system to exhibit oscillatory behavior, but the perturbations are not large enough to drive the system away from the Lagrange point over time. Observing the plotted orbit, it showcases an open hardly closed eliptical orbit, but with some perturbations that impede to classify it as stable.
+
+   - _LP3_: the obtained eigenvalues are: [ 0. 0. -0.17787832  0.17787832 ]. The real parts are zero and the imaginary parts are non-zero, so the Lagrange point is neutrally stable. Observing the plotted orbit, the oscillatory behavior indicates that small perturbations will cause the system to oscillate around the Lagrange point without diverging over time. 
+
+   - _LP4_: the obtained eigenvalues are: [-3.4e-07 -3.4e-07  3.4e-07  3.4e-07]. The eigenvalues being close to zero suggest a nearly neutrally stable Lagrange point. Similarly to the Lagrange point 2, the plotted orbit showcases an open eliptical orbit, but with some perturbations that impede to classify it as completely stable.
+     
+   - _LP5_: the obtained eigenvalues are:  [-2.15867061  2.15867061 0. 0.]. The Lagrange point appears to be a neutrally stable equilibrium point with oscillatory behavior. The oscillations indicate that perturbations from this equilibrium will exhibit periodic motion rather than monotonic convergence or divergence. Observing the plotted orbit, this is confirmed
+
   
  <p align="center">
   <img src="Milestone_Software_Design/Milestone_6_SD.jpg" alt="Milestone 6 software scheme">
