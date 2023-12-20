@@ -1,5 +1,4 @@
 ######################################### MILESTONE 2 ###########################################################
-
 ## Prototypes to integrate orbits with functions ##
 
 # In this program, the user will be able to integrate Kepler orbits using different time schemes.
