@@ -13,7 +13,7 @@ This repository is divided into different files. All the Python programs have a 
 1. **Milestone_Software_Design**: this file contains all the schemes for *Milestones 2* to *6*.
    
 2. **ODEs**: this file contains the programs:
-   - *Cauchy_Problem.py*: it contains the function that integrates the Cauchy problem, which can be achieved using different temporal schemes.
+   - *Cauchy_Problem.py* (Milestones 1-6/ODEs/Cauchy_Problem.py): it contains the function that integrates the Cauchy problem, which can be achieved using different temporal schemes.
    - *Stability_Regions.py*: it contains a function that calculates the stability regions for different temporal schemes, as well as a function to plot them.
    - *Time_Schemes.py*: it contains the functions that define the temporal schemes used to integrate the Cauchy problem.
 
@@ -25,6 +25,16 @@ This repository is divided into different files. All the Python programs have a 
    - *Lagrange_Points*: it contains the functions that calculate Lagrange points and their stability.
    - *Nbody_functions.py*: it contains the function that characterizes the N body problem with pointers.
    - *Oscillator.py*: it contains the function that represents the  differential operator of the harmonic oscillator system.
+
+4. **Systems_of_equations**: this file contains the programs (these programs were developed by Juan A. Hernández):
+   - *Linear_eq.py*: it contains the function for solving linear equations using Gauss
+   - *Newton.py*: it contains the functions for the Newton solver and the Jacobian.
+     
+5. **Errors**: this module defines two functions to calculate the error of the Cauchy problem programmed in the *Milestone 2* and the convergence rate of the obtained solution.
+
+6. **Milestones 2-6**: Detailed explanations for each milestone are provided in the following section, along with a schematic representation of the functions they utilize.
+
+## MILESTONES EXPLANATION
 
 
  
