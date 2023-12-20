@@ -49,7 +49,7 @@ ________________________________________________________________________________
 
 """
  
-## This function evaluates errors of numerical integration by mmeans of Richardson extrapolation, based on the Cauchy problem solution implemented in Milestone 2
+## This function evaluates errors of numerical integration by means of Richardson extrapolation, based on the Cauchy problem solution implemented in Milestone 2
 
 def Richardson_Cauchy_Problem(t, F, scheme, order, U_0 ):  
    

@@ -21,7 +21,7 @@ from ODEs.Time_Schemes import Euler, EI, RK4, CN
 
 # The user can also write them in the terminal:
 
-user_n = input("Number of iterations (n) (note that it has to be an integer): ")
+user_n = input("Number of iterations (n) (note that it has to be an integer, recommeded to use 10000): ")
 user_dt = input("Time interval (dt) (note that it needs to be 0.1, 0.01, 0.001... in order to be correct): ")
 user_U_0= input("Enter the initial conditions for U_0 (x, y, vx, vy), separated by commas (e.g.: 1, 0, 0, 1): ")
 
@@ -73,7 +73,7 @@ print ("Runge-Kutta 4 finished.")
 
 # All methods together
 
-plt.figure(5)
+plt.figure(1)
 
 plt.plot(sol_Euler[:, 0], sol_Euler[:, 1], color='blue', label='Orbit Euler Method')
 plt.plot(sol_inverse_euler[:, 0], sol_inverse_euler[:, 1], color='green', label='Orbit Inverse Euler Method')
@@ -87,56 +87,93 @@ plt.title('Orbit with different methods.')
 plt.legend()
 plt.grid()
 
+# All methods, separatedly
+fig, axs = plt.subplots(2, 2, figsize=(12, 10))
 
-# Euler method
+# Plot for Euler method
+axs[0, 0].plot(sol_Euler[0, :], sol_Euler[1, :])
+axs[0, 0].set_title('Orbit Euler Method')
+axs[0, 0].set_xlabel('x')
+axs[0, 0].set_ylabel('y')
+axs[0, 0].grid()
 
-plt.figure(1)
+# Plot for Inverse Euler method
+axs[0, 1].plot(sol_inverse_euler[:, 0], sol_inverse_euler[:, 1])
+axs[0, 1].set_title('Orbit Inverse Euler Method')
+axs[0, 1].set_xlabel('x')
+axs[0, 1].set_ylabel('y')
+axs[0, 1].grid()
 
-plt.plot(sol_Euler[:, 0], sol_Euler[:,1])
-plt.axis('equal')
-plt.xlabel('x')
-plt.ylabel('y')     
-plt.title('Orbit Euler Method.')  
-plt.grid()
+# Plot for Crank Nicholson method
+axs[1, 0].plot(sol_cn[:, 0], sol_cn[:, 1])
+axs[1, 0].set_title('Orbit Crank-Nicolson Method')
+axs[1, 0].set_xlabel('x')
+axs[1, 0].set_ylabel('y')
+axs[1, 0].grid()
 
-    
-# Inverse Euler method
-     
-plt.figure(2)
-
-plt.plot(sol_inverse_euler[:, 0], sol_inverse_euler[:, 1])
-plt.axis('equal')
-plt.xlabel('x')
-plt.ylabel('y')     
-plt.title('Orbit Inverse Euler Method.')  
-plt.grid()    
-
-
-# Crank Nicholson method
-
-plt.figure(3)
-
-plt.plot(sol_cn[:, 0], sol_cn[:, 1])
-plt.axis('equal')
-plt.xlabel('x')
-plt.ylabel('y')     
-plt.title('Orbit Crank-Nicolson Method.')  
-plt.grid()
+# Plot for Runge-Kutta 4 method
+axs[1, 1].plot(sol_rk4[:, 0], sol_rk4[:, 1])
+axs[1, 1].set_title('Orbit Runge-Kutta 4 Method')
+axs[1, 1].set_xlabel('x')
+axs[1, 1].set_ylabel('y')
+axs[1, 1].grid()
 
 
-# Runge-Kutta 4 method
-
-plt.figure(4)
-
-plt.plot(sol_rk4[:, 0], sol_rk4[:, 1])
-plt.axis('equal')
-plt.xlabel('x')
-plt.ylabel('y')     
-plt.title('Orbit Runge-Kutta 4 Method.')  
-plt.grid()
-
-
+plt.tight_layout()
 plt.show()
 
 input("Press Enter to close all plots")  
 plt.close('all')
+
+
+# # Euler method
+
+# plt.figure(1)
+
+# plt.plot(sol_Euler[0, :], sol_Euler[1,:])
+# plt.axis('equal')
+# plt.xlabel('x')
+# plt.ylabel('y')     
+# plt.title('Orbit Euler Method.')  
+# plt.grid()
+
+    
+# # Inverse Euler method
+     
+# plt.figure(2)
+
+# plt.plot(sol_inverse_euler[:, 0], sol_inverse_euler[:, 1])
+# plt.axis('equal')
+# plt.xlabel('x')
+# plt.ylabel('y')     
+# plt.title('Orbit Inverse Euler Method.')  
+# plt.grid()    
+
+
+# # Crank Nicholson method
+
+# plt.figure(3)
+
+# plt.plot(sol_cn[:, 0], sol_cn[:, 1])
+# plt.axis('equal')
+# plt.xlabel('x')
+# plt.ylabel('y')     
+# plt.title('Orbit Crank-Nicolson Method.')  
+# plt.grid()
+
+
+# # Runge-Kutta 4 method
+
+# plt.figure(4)
+
+# plt.plot(sol_rk4[:, 0], sol_rk4[:, 1])
+# plt.axis('equal')
+# plt.xlabel('x')
+# plt.ylabel('y')     
+# plt.title('Orbit Runge-Kutta 4 Method.')  
+# plt.grid()
+
+
+# plt.show()
+
+
