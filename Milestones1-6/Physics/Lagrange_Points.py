@@ -42,7 +42,7 @@ ________________________________________________________________________________
 
 """
 
-# Np refers to the umber of points of Lagrange
+# Np refers to the number of points of Lagrange
 def Lagrange_points(U_0, Np, mu):
     
     L_P = zeros([5,2])

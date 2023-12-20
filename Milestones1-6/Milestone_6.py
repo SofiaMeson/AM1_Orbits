@@ -3,7 +3,7 @@
 
 from numpy import array, save, zeros, linspace, shape, reshape, around, random
 from ODEs.Cauchy_Problem import Integrate_Cauchy
-from Physics.CR3BProblem import CR3BP, F
+from Physics.CR3BProblem import CR3BP
 from Physics.Lagrange_Points import Lagrange_points, Stability_LP
 from ODEs.Time_Schemes import Euler, RK4, CN, EI, LF, ERK
 from Physics.ERK_functions import butcher, StepSize, RK_stages
@@ -11,14 +11,14 @@ import matplotlib.pyplot as plt
 
 
 # System data
-mu = 1.2151e-2 #Earth - Moon
-#mu = 3.0039e-7 #Sun - Earth
+mu = 1.2151e-2      #Earth - Moon
+#mu = 3.0039e-7     #Sun - Earth
 
 
 # Variable initialization
 N = int(10000)
 t = linspace(0, 10, N)
-Np = 5          # Number of Lagrange points
+Np = 5                           # Number of Lagrange points that will be calculated
 
 
 
@@ -31,7 +31,7 @@ U_0[2, :] = [-0.1, 0, 0, 0]
 U_0[3, :] = [0.8, -0.6, 0, 0]
 U_0[4, :] = [1.01, 0, 0, 0]
 
-
+# Calculates the Lagrange points for the system
 LP = Lagrange_points(U_0, Np, mu)
 
 # Display of the calculated Lagrange points
@@ -39,7 +39,7 @@ print("Calculated Lagrange Points:")
 for i, point in enumerate(LP, start=1):
     print(f"LP{i} =", point)
 
-# User selects a Lagrange point
+# User selects a Lagrange point to study its stability
 selected_point = input("Enter the number of the Lagrange point you want to select to study its stability: ")
 
 try:
@@ -62,20 +62,23 @@ U0[0:2] = LP[selected_point_index - 1,:]
 perturbation = 1e-4*random.random()             
 U0 = U0 + perturbation
 
-# As the the circular restricted 3 body problem has more inputs than the Cauchy function,
-# this function is created to be able to integrate it
+# As the the circular restricted 3 body problem has more inputs than the Cauchy function, this function is created to be able to integrate it
 def F(U,t):
    return CR3BP(U, mu)
 
 
-# Integrate the Cauhy problem using an embedded Runge-Kutta method
+# Integrate the Cauhy problem using an embedded Runge-Kutta method previously created
 U = Integrate_Cauchy(F, U0, t, ERK)
 
 # Study the Lagrange point's stability
 U0_stab = zeros(4)
 U0_stab[0:2] = LP[selected_point_index - 1, :]
 eingvalues = Stability_LP(U0_stab, mu)
-#print(around(eingvalues.real, 8))
+
+# Display the eigenvalues
+print("The selected Lagrange point's eigenvalues are:")
+print(around(eingvalues.real, 8))
+
 
 #  Plot the results
 
