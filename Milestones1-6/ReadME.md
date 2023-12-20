@@ -53,12 +53,12 @@ This repository is divided into different files. All the Python programs have a 
 
 - [**Milestone 5**](Milestone_5.py):
  <p align="center">
-  <img src="Milestone_Software_Design/Milestone_4_SD.jpg" alt="Milestone 4 software scheme">
+  <img src="Milestone_Software_Design/Milestone_5_SD.jpg" alt="Milestone 5 software scheme">
 </p>
 
 - [**Milestone 6**](Milestone_6.py):
  <p align="center">
-  <img src="Milestone_Software_Design/Milestone_4_SD.jpg" alt="Milestone 4 software scheme">
+  <img src="Milestone_Software_Design/Milestone_6_SD.jpg" alt="Milestone 6 software scheme">
 </p>
 
 
