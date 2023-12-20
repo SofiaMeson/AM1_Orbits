@@ -81,12 +81,19 @@ This repository is divided into different files. All the Python programs have a 
   <img src="Milestone_Software_Design/Milestone_4_SD.jpg" alt="Milestone 4 software scheme">
 </p>
 
-- [**Milestone 5**](Milestone_5.py):
+- [**Milestone 5**](Milestone_5.py): "*N body problem*"
+
+   The initial conditions given for the N-body problem define a system composed by four bodies, each with distinct positions and velocities. The number of coordinates for each one is 3 ([x, y, z]). The arrangement consists of two particles along the x-axis and two along the y-axis, forming a symmetrical configuration.
+
+   Under the influence of gravitational forces, the simulation of this N-body system reveals a stable and periodic motion. The particles follow elliptical orbits, and collectively, these orbits create a circular pattern at the system's center. This configuration indicates a dynamic equilibrium, where gravitational interactions lead to a sustained, harmonious motion.
+  
  <p align="center">
   <img src="Milestone_Software_Design/Milestone_5_SD.jpg" alt="Milestone 5 software scheme">
 </p>
 
-- [**Milestone 6**](Milestone_6.py):
+- [**Milestone 6**](Milestone_6.py): "*Lagrange points and their stability*"
+
+  
  <p align="center">
   <img src="Milestone_Software_Design/Milestone_6_SD.jpg" alt="Milestone 6 software scheme">
 </p>
