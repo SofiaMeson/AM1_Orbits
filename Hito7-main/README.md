@@ -23,8 +23,6 @@ El trabajo se encuentra desglosado de la siguiente manera:
 6) *Figures*:  Almacena las imagenes de descripción.
 
 
- <p align="center">
-  <img src="/Figures/Diagrama.png" alt="Milestone 5 software scheme">
-</p>
+![](/Figures/Diagrama.png)
 
 
