@@ -25,7 +25,7 @@ interaction with other bodies.
            F : array representing the derivatives of the state vector
 
 
-Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+Author: Sofia Meson Perez (sofia.meson.perez@alumnos.upm.es) Dec 2023
 ___________________________________________________________________________________________________________
 
 """

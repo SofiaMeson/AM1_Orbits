@@ -13,7 +13,7 @@ Definition of the function that represents the  differential operator of the har
     return: 
             1D array that characterizes the harmonic oscillator
           
-Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+Author: Sofia Meson Perez (sofia.meson.perez@alumnos.upm.es) Dec 2023
 ___________________________________________________________________________________________________________
 
 """

@@ -18,7 +18,7 @@ Definition of different dynamic systems
             1D array that characterizes each dynamic system
             
           
-Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+Author: Sofia Meson Perez (sofia.meson.perez@alumnos.upm.es) Dec 2023
 _________________________________________________________________________________________________________________
 
 """

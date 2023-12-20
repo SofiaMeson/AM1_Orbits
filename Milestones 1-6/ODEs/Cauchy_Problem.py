@@ -17,7 +17,7 @@ Function to integrate the Cauchy problem, using different temporal schemes
     return: 
             U : state array. Each row represented the state vector ar a specific time point
           
-Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+Author: Sofia Meson Perez (sofia.meson.perez@alumnos.upm.es) Dec 2023
 __________________________________________________________________________________________________
 
 """
