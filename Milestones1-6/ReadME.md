@@ -36,10 +36,32 @@ This repository is divided into different files. All the Python programs have a 
 
 ## MILESTONES EXPLANATION
 
-
- 
-
-
-<p align="center">
-  <img src="Milestone_Software_Design/Milestone_2_SD.jpg" alt="Descripción de la imagen">
+- [**Milestone 2**](Milestone_2.py):
+ <p align="center">
+  <img src="Milestone_Software_Design/Milestone_2_SD.jpg" alt="Milestone 2 software scheme">
 </p>
+
+- [**Milestone 3**](Milestone_3.py):
+ <p align="center">
+  <img src="Milestone_Software_Design/Milestone_3_SD.jpg" alt="Milestone 3 software scheme">
+</p>
+
+- [**Milestone 4**](Milestone_4.py):
+ <p align="center">
+  <img src="Milestone_Software_Design/Milestone_4_SD.jpg" alt="Milestone 4 software scheme">
+</p>
+
+- [**Milestone 5**](Milestone_5.py):
+ <p align="center">
+  <img src="Milestone_Software_Design/Milestone_4_SD.jpg" alt="Milestone 4 software scheme">
+</p>
+
+- [**Milestone 6**](Milestone_6.py):
+ <p align="center">
+  <img src="Milestone_Software_Design/Milestone_4_SD.jpg" alt="Milestone 4 software scheme">
+</p>
+
+
+
+
+
