@@ -34,7 +34,7 @@ Definition of the temporal schemes used to integrate the Cauchy problem
     return: 
             The selected temporal method
           
-Author: Sofia Meson Perez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
 ___________________________________________________________________________________________________________
 
 """

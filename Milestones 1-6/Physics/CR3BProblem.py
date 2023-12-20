@@ -15,7 +15,7 @@ Definition of the circular restriced 3-body problem
             the state vector in a numerical integration scheme
             
           
-Author: Sofia Meson Perez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
 _________________________________________________________________________________________________________________
 
 """

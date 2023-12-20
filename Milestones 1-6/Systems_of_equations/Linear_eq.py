@@ -17,9 +17,7 @@ def  Gauss(A, b):
           note: matrix A and b term are modified 
 
  Juan A. Hernandez, juanantonio.hernandez@upm.es (Oct 2022) 
- 
-
-________________________________________________________________  
+ ________________________________________________________________  
 
 Testing: 
 

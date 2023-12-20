@@ -55,7 +55,7 @@ Definition of the embedded Runge-Kutta program functions
              bs : 1D array containing the coefficients \(b_s\) for the Butcher array
              c : 1D array containing the coefficients \(c\) for the Butcher array
           
-Author: Sofia Meson Perez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
 _________________________________________________________________________________________________________________
 
 """
