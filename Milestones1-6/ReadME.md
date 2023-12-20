@@ -48,6 +48,16 @@ This repository is divided into different files. All the Python programs have a 
 </p>
 
 - [**Milestone 3**](Milestone_3.py): "_Error estimation of numerical solutions_"
+
+   By utilizing two grids it is possible to estimate the error of the integration of the Cauchy problems for different time schemes. Observing the results, it becomes clear that both Euler and inverse Euler have a first-order truncation error, Crank-Nicolson has a second-order truncation error and Runge-Kutta Order 4 a four-order truncation error. The same occurs with the convergence rate.
+
+   A higher convergence rate means that the temporal scheme can achieve a more accurate solution with a coarser grid or larger time step compared to methods with lower convergence rates.
+
+  Crank-Nicolson and Runge-Kutta order 4 methods se discretization, which may introduce errors if the time step is not small enough.
+
+  Future work for this program would be to try the estimation of the error and the convergence rate for other grids and see if it changes for the better.
+
+   It is recommended that the user utilizes the same number of steps and step size than the ones used in the *Milestone 2* to have a more accurate perception of how the temporal schemes evolve.
  <p align="center">
   <img src="Milestone_Software_Design/Milestone_3_SD.jpg" alt="Milestone 3 software scheme">
 </p>
