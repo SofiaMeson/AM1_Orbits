@@ -4,7 +4,7 @@ from numpy import array
 
 """
 ___________________________________________________________________________________________________________
-Definition of the function that represents  differential operator in a Kepler orbit
+Definition of the function that represents differential operator in a Kepler orbit
 
     Inputs: 
             U : state vector (4 components)
