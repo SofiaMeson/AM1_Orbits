@@ -12,13 +12,14 @@ import matplotlib.pyplot as plt
 
 # The initial conditions may be changed. The ones used correspond to the ones used during the AM1 classes this semester
 
-N = 5000
-dt = 0.001
+N = 10000
+dt = 0.0001
 N_conv = N/2        
 m = 5                           # number of points in the graph 
 t = linspace(0, N*dt, N+1)
 U_0 = array ([1, 0, 0, 1])
-
+custom_x_limits = [0, max(t)]
+print(t)
 
 # To evaluate the error of the numerical integration of orbit calculated integrating the Cauchy problem using different 
 # temporal schemes (refer to milestone 2), the functions defined in the module "Error" will be used.
@@ -54,6 +55,7 @@ if scheme == 1:
     plt.subplot(1, 2, 1)
     plt.plot(t, cauchy_error[:, 0], color='blue')
     plt.xlabel('t')
+    plt.xlim(custom_x_limits)
     plt.ylabel('Error Kepler orbit, Euler [-]')
     plt.title('Euler Temporal Scheme Error')
     plt.grid()
@@ -90,6 +92,7 @@ elif scheme == 2:
     plt.subplot(1, 2, 1)
     plt.plot(t, cauchy_error[:, 0], color='green')
     plt.xlabel('t')
+    plt.xlim(custom_x_limits)
     plt.ylabel('Error Kepler orbit, Inverse Euler [-]')
     plt.title('Inverse Euler Temporal Scheme Error')
     plt.grid()
@@ -127,6 +130,7 @@ elif scheme == 3:
     plt.subplot(1, 2, 1)
     plt.plot(t, cauchy_error[:, 0], color='yellow')
     plt.xlabel('t')
+    plt.xlim(custom_x_limits)
     plt.ylabel('Error Kepler orbit, Crank-Nicolson [-]')
     plt.title('Crank-Nicolson Temporal Scheme Error')
     plt.grid()
@@ -159,10 +163,12 @@ elif scheme == 4:
     # Plot for Runge-Kutta order 4 temporal scheme error
     plt.figure(figsize=(12, 6))
 
+
     # Plot Runge-Kutta 4 temporal scheme error
     plt.subplot(1, 2, 1)
     plt.plot(t, cauchy_error[:, 0], color='red')
     plt.xlabel('t')
+    plt.xlim(custom_x_limits)
     plt.ylabel('Error Kepler orbit, RK4 [-]')
     plt.title('Runge-Kutta Order 4 Temporal Scheme Error')
     plt.grid()
