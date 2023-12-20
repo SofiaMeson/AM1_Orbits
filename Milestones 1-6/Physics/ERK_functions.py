@@ -6,6 +6,60 @@ from scipy.optimize import newton
 from numpy import zeros, matmul, size, linspace
 from numpy.linalg import norm
 
+
+
+"""
+_________________________________________________________________________________________________________________
+Definition of the embedded Runge-Kutta program functions
+
+# Function 1: RK_stages
+    This function performs one step of the Runge-Kutta method for a specified order. It uses the Butcher array 
+    coefficients obtained from the "butcher" function. The intermediate values `k` are computed based on the 
+    coefficients.
+
+     Inputs:
+            order: integer representing the order of the Runge-Kutta method
+            U1 : current state vector
+            t : array representing the time points at which the solution is computed
+            dt : time step, determining the size of the time intervals between iterations
+            F : a function representing the  differential operator
+
+     Output:
+            U2 : state vector after one step of the Runge-Kutta method
+
+
+# Function 2: StepSize
+    This function computes the adaptive time step size 
+     
+     Inputs:
+             dU : 1D array representing the difference between two solutions
+             tol: specified tolerance
+             dt : current time step
+             orders : order of accuracy
+
+     Output:
+             step_size: adaptive time step size based on the error between two solutions, the specified tolerance,
+             and the orders of accuracy
+
+
+
+# Function 3: butcher
+ This function defines the Butcher array coefficients for the embedded Runge-Kutta method. These coefficients are 
+ used in the `RK_stages` function to perform one step of the Runge-Kutta method
+
+     Outputs:
+             orders: list of integers representing the orders of accuracy for the embedded Runge-Kutta method
+             Ns: integer representing the number of stages
+             a : 2D array containing the coefficients \(a\) for the Butcher array
+             b : 1D array containing the coefficients \(b\) for the Butcher array
+             bs : 1D array containing the coefficients \(b_s\) for the Butcher array
+             c : 1D array containing the coefficients \(c\) for the Butcher array
+          
+Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+_________________________________________________________________________________________________________________
+
+"""
+
 # This function performs one step of the RK method for the specified order
 def RK_stages(order, U1, t, dt, F):
     
@@ -62,7 +116,9 @@ def StepSize(dU, tol, dt, orders):
 def butcher():
     # ... other code
 
-    orders = [2, 1]
+    orders = [2, 1]     # List of orders, in this case the order of accuracy for the primary stage of the
+                        # Runge-Kutta method is 2 and 1 represents the order of accuracy for the embedded 
+                        # stage, used to estimate the error and adapt the step size
     Ns = 2
 
     a = zeros([Ns, Ns-1])

@@ -1,9 +1,43 @@
-###############################TIME SCHEMES######################################################
+##########################################TIME SCHEMES######################################################
 
 from scipy.optimize import newton
 from numpy import zeros, matmul, size, linspace
 from numpy.linalg import norm
 from Physics.ERK_functions import butcher, StepSize, RK_stages
+
+"""
+___________________________________________________________________________________________________________
+Definition of the temporal schemes used to integrate the Cauchy problem
+
+# Euler, Runge-Kutta oder 4 (RK4), Crank-Nicolson (CN), Inverse Euler (EI), Leap-Frog (LF), 
+  Embedded Runge-Kutta
+       
+    Inputs: 
+            F : represents the  differential operator. Imported from Kepler.py, Nbody_functions.py, 
+            Oscillator.py or, in the case of the circular restricted 3 body problem, it uses
+            the F defined in Milestone_6.py
+            U : state vector at a specific time point
+            dt: time step, determining the size of the time intervals between iterations
+            t : array representing the time points at which the solution is computed
+            
+    return: 
+            The updated state vector at the next time step, computed using the selected numerical 
+            method
+            
+# Choose integration method: this function is defined to optimize the code and allow the user to use the 
+  temporal schemes without writing inside of the code itself
+       
+    Inputs: 
+            Euler, Runge-Kutta oder 4 (RK4), Crank-Nicolson (CN), Inverse Euler (EI), Leap-Frog (LF), 
+            Embedded Runge-Kutta
+            
+    return: 
+            The selected temporal method
+          
+Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+___________________________________________________________________________________________________________
+
+"""
 
 # Euler method
 def Euler(F, U, dt, t):
@@ -25,7 +59,7 @@ def CN (F, U, dt, t) :
       a = U + dt/2 * F(U, t)
       return newton (Residual_CN, U)
 
-#Inverse_Euler method
+#Inverse Euler method
 def EI (F, U, dt, t) :
     def Residual_IE (X) :
          return X - U - dt * F (X, dt + t)
@@ -70,6 +104,7 @@ def ERK(F, U, dt, t):
     ierr = 0
 
     return U2
+
 
 
 

@@ -1,7 +1,24 @@
-######################################### CIRCULAR RESTRICTED 3 BODY PROBLEM ####################################################
+################################# CIRCULAR RESTRICTED 3 BODY PROBLEM #######################################
 
 from numpy import sqrt, array
 
+"""
+_________________________________________________________________________________________________________________
+Definition of the circular restriced 3-body problem
+
+    Inputs: 
+            U : state vector
+            mu :  scalar parameter representing the mass ratio in the circular restricted three-body problem
+            
+    return: 
+            1D array representing the time derivatives of the state vector. These derivatives are used to update
+            the state vector in a numerical integration scheme
+            
+          
+Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+_________________________________________________________________________________________________________________
+
+"""
 
 def CR3BP(U, mu):
     r = U[0:2]          # Position vector            
@@ -16,4 +33,6 @@ def CR3BP(U, mu):
     dvdt_2 = - (1 - mu)*r[1]/(r1**3) - mu*r[1]/(r2**3)
 
     return array([drdt[0], drdt[1], 2*drdt[1] + r[0] + dvdt_1, -2*drdt[0] + r[1] + dvdt_2])
+
+
 

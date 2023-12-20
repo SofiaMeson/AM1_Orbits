@@ -3,7 +3,7 @@
 
 from numpy import array, save, zeros, linspace, shape, reshape, around, random
 from ODEs.Cauchy_Problem import Integrate_Cauchy
-from Physics.CR3BProblem import CR3BP
+from Physics.CR3BProblem import CR3BP, F
 from Physics.Lagrange_Points import Lagrange_points, Stability_LP
 from ODEs.Time_Schemes import Euler, RK4, CN, EI, LF, ERK
 from Physics.ERK_functions import butcher, StepSize, RK_stages
@@ -46,7 +46,7 @@ try:
     selected_point_index = int(selected_point)
 
     # Check if the selected index is valid
-    if 1 <= selected_point_index <= len(Np):
+    if 1 <= selected_point_index <= len(LP):
         selected_lagrange_point = LP[selected_point_index - 1]
         print(f"You have selected Lagrange Point {selected_point_index}: {selected_lagrange_point}")
     else:
@@ -79,20 +79,17 @@ eingvalues = Stability_LP(U0_stab, mu)
 
 #  Plot the results
 
-# Assuming selected_point_index is defined earlier in your code
-lagrange_point_names = ['L1', 'L2', 'L3', 'L4', 'L5']
-
 fig, (ax1, ax2) = plt.subplots(1, 2)
-ax1.plot(U[:, 0], U[:, 1], '-', color="r")
-ax1.plot(-mu, 0, 'o', color="g")
-ax1.plot(1 - mu, 0, 'o', color="b")
+ax1.plot(U[:, 0], U[:, 1], '-', color="red")
+ax1.plot(-mu, 0, 'o', color="purple")
+ax1.plot(1 - mu, 0, 'o', color="green")
 for i in range(Np):
-    ax1.plot(LP[i, 0], LP[i, 1], 'o', color="k")
+    ax1.plot(LP[i, 0], LP[i, 1], 'o', color="black")
 
-ax2.plot(U[:, 0], U[:, 1], '-', color="r")
+ax2.plot(U[:, 0], U[:, 1], '-', color="red")
 
-ax2.plot(LP[selected_point_index - 1, 0], LP[selected_point_index - 1, 1], 'o', color="k")
-fig.suptitle(f"Orbit around {lagrange_point_name} with Embedded RK")
+ax2.plot(LP[selected_point_index - 1, 0], LP[selected_point_index - 1, 1], 'o', color="black")
+fig.suptitle(f"Orbit around Lagrange Point {selected_point_index}")
 
 
 ax1.set_title("Orbital view, with the solutions from integrating the Cauchy problem")
@@ -103,6 +100,8 @@ for ax in fig.get_axes():
     ax.grid()
 
 plt.show()
+
+
 
 
 

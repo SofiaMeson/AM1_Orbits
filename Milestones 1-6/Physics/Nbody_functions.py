@@ -1,6 +1,35 @@
 from numpy import reshape, zeros
 from numpy.linalg import norm
 
+"""
+___________________________________________________________________________________________________________
+Definition of the function that characterizes the N body problem with pointers
+
+- This function represents the differential operator for the N-body problem. It reshapes the input state 
+vector `U` into a 3D array `Us` representing the positions and velocities of the bodies.
+- The derivatives `F` are initialized as an array of zeros, and they are reshaped into a 3D array `dUs`.
+- The positions and velocities are extracted from `Us`.
+- The acceleration (`dvdt`) is set to zero for all bodies.
+- The function then iterates through each body to calculate the acceleration based on the gravitational 
+interaction with other bodies.
+- The resulting derivatives (`F`) are returned as a reshaped 3D array.
+
+
+   Inputs:
+           U : state vector for the N-body problem
+           t : array representing the time points at which the solution is computed
+           Nb : number of bodies in the N-body problem
+           Nc : number of coordinates for each body (normally, 3)
+
+   Outputs:
+           F : array representing the derivatives of the state vector
+
+
+Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+___________________________________________________________________________________________________________
+
+"""
+
 # As the N-body problem implies the presence of multiple bodies, it is easier to utilize
 # pointers to solve it 
 

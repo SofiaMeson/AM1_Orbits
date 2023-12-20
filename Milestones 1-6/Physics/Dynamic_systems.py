@@ -1,11 +1,27 @@
-
+################################ Dynamic Systems Integration ####################################
 from numpy import array, zeros, linspace
 import matplotlib.pyplot as plt
 from scipy.optimize import fsolve, newton
 from mpl_toolkits.mplot3d import axes3d
 import math as math
 
-################################ Dynamic Systems Integration ####################################
+
+"""
+_________________________________________________________________________________________________________________
+Definition of different dynamic systems
+
+    Inputs: 
+            U : state vector
+            t : array representing the time points at which the solution is computed
+            
+    return: 
+            1D array that characterizes each dynamic system
+            
+          
+Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+_________________________________________________________________________________________________________________
+
+"""
 
 ## In this program, the user will be able to plot different dynamic systems by solving them solving
 ## the Cauchy problem using different time schemes.
