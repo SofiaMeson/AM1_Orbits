@@ -13,7 +13,7 @@ This repository is divided into different files. All the Python programs have a 
 1. **Milestone_Software_Design**: this file contains all the schemes for *Milestones 2* to *6*.
    
 2. **ODEs**: this file contains the programs:
-   - [*Cauchy_Problem.py*](Milestones1-6/ODEs/Cauchy_Problem.py): it contains the function that integrates the Cauchy problem, which can be achieved using different temporal schemes.
+   - [*Cauchy_Problem.py*](AM1_Orbits/Milestones1-6/ODEs/Cauchy_Problem.py): it contains the function that integrates the Cauchy problem, which can be achieved using different temporal schemes.
    - [*Stability_Regions.py*](Milestones1-6/ODEs/Stability_Regions.py): it contains a function that calculates the stability regions for different temporal schemes, as well as a function to plot them.
    - [*Time_Schemes.py*](Milestones1-6/ODEs/Time_Schemes.py): it contains the functions that define the temporal schemes used to integrate the Cauchy problem.
 
