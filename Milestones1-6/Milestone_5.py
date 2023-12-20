@@ -28,8 +28,7 @@ U1 = reshape(U_0, (Nb, Nc, 2))
 r0 = reshape(U1[:, :, 0], (Nb, Nc))
 v0 = reshape(U1[:, :, 1], (Nb, Nc))
 
-# Define initial conditions. These were takem for example, but the
-# user can set them via the commented code
+# Define initial conditions. These were takem for example, but the user can set them via the commented code
 # Body 1
 r0[0, :] = [1, 0, 0]       
 v0[0, :] = [0, 0.4, 0]     
@@ -45,6 +44,15 @@ v0[2, :] = [-0.4, 0., 0.]
 # Body 4
 r0[3, :] = [0, -1, 0]       
 v0[3, :] = [0.4, 0., 0.]    
+
+# Body 5
+# r0[4, :] = [0, 0, 1]       
+# v0[4, :] = [-0.4, 0., 0.]
+
+
+# Body 6
+# r0[4, :] = [0, 0, -1]       
+# v0[4, :] = [0., 0., 0.4]
 
 # The user can also enter manually the initial conditions uncommenting the following code:
 
@@ -77,20 +85,12 @@ v0[3, :] = [0.4, 0., 0.]
 
 U = Integrate_Cauchy(F, U_0, t, RK4)
 
-Us = reshape(U, (N + 1, Nb, Nc, 2))              # Vector de estado de solución
+Us = reshape(U, (N + 1, Nb, Nc, 2))              # State vector of the solution
 r = reshape(Us[:, :, :, 0], (N + 1, Nb, Nc))     # Each of the body's final positions
 
 
-# # Plotted solution
-# for i in range(Nb):
-#     plt.plot(r[:, i, 0], r[:, i, 1]) 
-# plt.axis('equal')
-# plt.grid()
-
-# plt.show()
-
-
-#Graph 3D
+# Plot the results
+#3D plot
 fig1 = plt.figure()
 ax1 = fig1.add_subplot(111,projection='3d')
 col = ["blue","red","green","purple","yellow","orange","black"]
@@ -102,8 +102,9 @@ ax1.set_ylabel("y")
 ax1.set_zlabel("z")
 plt.grid()
 
+
+#2D plot
 plt.figure(2)
-#Graph 2D
 for i in range(Nb):
    plt.plot(r[:, i, 0], r[:, i, 1], color = col[i])
 plt.axis('equal')
@@ -112,6 +113,5 @@ plt.xlabel("x")
 plt.ylabel("y")
 plt.grid()
 plt.show()
-
 
 
