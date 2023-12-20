@@ -23,6 +23,6 @@ El trabajo se encuentra desglosado de la siguiente manera:
 6) *Figures*:  Almacena las imagenes de descripción.
 
 
-![](Diagram_M7.png)
+![](\Diagram_M7.png)
 
 
