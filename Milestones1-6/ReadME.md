@@ -66,12 +66,16 @@ This repository is divided into different files. All the Python programs have a 
 
    The results are plotted for the initial conditions that provide clear plots for the stability regions.
 
-     When observing the results, it becomes clear that:
+   When observing the results, it becomes clear that:
   
-        - _Euler_: the Euler scheme's absolute stability region is a circunference with the center in (-1, 0) and with r=1. The eigenvalues fall in the imaginary axis, outside of the absolute stability region, so the Euler temporal scheme is not stable.
-        - _Inverse Euler_: the eigenvalues are inside of the absolute stability region, specifically in the yellow circunference in the plot (with center (1,0) and r=1). The numeric solution is stable, as well as the system.
-        - _Crank-Nicolson_: the absolute stability region is the negative real half-plane, which makes the system stable. The eigenvalues fall in the imaginary axis.
-        - _Runge-Kutta order 4_: the absolute stability region is quite peculiar, as some of its stability regions is contained in the positive real half-plane. The solutions fall in the contour of the stability region, in the imaginary plane.
+   - _Euler_: the Euler scheme's absolute stability region is a circumference with the center at (-1, 0) and with r=1. The eigenvalues fall on the imaginary axis, outside of the absolute stability region, so the Euler temporal scheme is not stable.
+
+   - _Inverse Euler_: the eigenvalues are inside of the absolute stability region, specifically in the yellow circumference in the plot (with center (1, 0) and r=1). The numeric solution is stable, as well as the system.
+
+   - _Crank-Nicolson_: the absolute stability region is the negative real half-plane, which makes the system stable. The eigenvalues fall on the imaginary axis.
+
+   - _Runge-Kutta order 4_: the absolute stability region is quite peculiar, as some of its stability regions are contained in the positive real half-plane. The solutions fall on the contour of the stability region, in the imaginary plane.
+
 
  <p align="center">
   <img src="Milestone_Software_Design/Milestone_4_SD.jpg" alt="Milestone 4 software scheme">
