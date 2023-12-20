@@ -7,8 +7,8 @@ ________________________________________________________________________________
 Definition of the circular restriced 3-body problem
 
     Inputs: 
-            U : state vector
-            mu :  scalar parameter representing the mass ratio in the circular restricted three-body problem
+           - U : state vector
+           - mu :  scalar parameter representing the mass ratio in the circular restricted three-body problem
             
     return: 
             1D array representing the time derivatives of the state vector. These derivatives are used to update

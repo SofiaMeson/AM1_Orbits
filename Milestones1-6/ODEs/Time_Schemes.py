@@ -13,12 +13,12 @@ Definition of the temporal schemes used to integrate the Cauchy problem
   Embedded Runge-Kutta
        
     Inputs: 
-            F : represents the  differential operator. Imported from Kepler.py, Nbody_functions.py, 
-            Oscillator.py or, in the case of the circular restricted 3 body problem, it uses
-            the F defined in Milestone_6.py
-            U : state vector at a specific time point
-            dt: time step, determining the size of the time intervals between iterations
-            t : array representing the time points at which the solution is computed
+            - F : represents the  differential operator. Imported from Kepler.py, Nbody_functions.py, 
+                  Oscillator.py or, in the case of the circular restricted 3 body problem, it uses
+                  the F defined in Milestone_6.py
+            - U : state vector at a specific time point
+            - dt: time step, determining the size of the time intervals between iterations
+            - t : array representing the time points at which the solution is computed
             
     return: 
             The updated state vector at the next time step, computed using the selected numerical 
@@ -28,8 +28,8 @@ Definition of the temporal schemes used to integrate the Cauchy problem
   temporal schemes without writing inside of the code itself
        
     Inputs: 
-            Euler, Runge-Kutta oder 4 (RK4), Crank-Nicolson (CN), Inverse Euler (EI), Leap-Frog (LF), 
-            Embedded Runge-Kutta
+           - All temporal schemes: Euler, Runge-Kutta oder 4 (RK4), Crank-Nicolson (CN), Inverse Euler (EI), 
+             Leap-Frog (LF) and Embedded Runge-Kutta
             
     return: 
             The selected temporal method

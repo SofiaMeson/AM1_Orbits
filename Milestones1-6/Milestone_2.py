@@ -1,7 +1,10 @@
-######################################### MILESTONE 2 ####################################################
-## Prototypes to integrate orbits with functions##
+######################################### MILESTONE 2 ###########################################################
 
-#In this program, the user will be able to compare the different methods to integrate Kepler orbits.
+## Prototypes to integrate orbits with functions ##
+
+# In this program, the user will be able to integrate Kepler orbits using different time schemes.
+# The results will be plotted to compare the different time schemes
+
 
 from numpy import linspace, array 
 import matplotlib.pyplot as plt
@@ -14,14 +17,14 @@ from ODEs.Time_Schemes import Euler, EI, RK4, CN
 # They can be given manually (using the parameters defined below)
 # n = 100000
 # dt = 0.0001
-# t = np.linspace(0, n*dt, n+1)
-# U_0 = np.array ( [ 1, 0, 0, 1 ] )
+# t = linspace(0, n*dt, n+1)
+# U_0 = array ( [ 1, 0, 0, 1 ] )
 
 # The user can also write them in the terminal:
 
 user_n = input("Number of iterations (n) (note that it has to be an integer): ")
 user_dt = input("Time interval (dt) (note that it needs to be 0.1, 0.01, 0.001... in order to be correct): ")
-user_U_0= input("Enter the initial conditions for U_0 (x, y, vx, vy), separated by commas (e.g.: 1, 2, 3, 4): ")
+user_U_0= input("Enter the initial conditions for U_0 (x, y, vx, vy), separated by commas (e.g.: 1, 0, 0, 1): ")
 
 n = int(user_n) 
 dt = float(user_dt)
@@ -40,7 +43,7 @@ else:
 ### Integrating Kepler orbits with different time schemes ###
 
 # A function is created to define Kepler force in orbits
-def F(U):
+def F(U, t):
     x, y, vx, vy = U[0], U[1], U[2], U[3]
     mr = (x**2 + y**2)**(3/2)
 
@@ -49,7 +52,6 @@ def F(U):
         return array([vx, vy, 0.0, 0.0])
     else:
         return array([vx, vy, -x / mr, -y / mr])
-
 
 # The orbit is integrated using the Cauchy problem for different time schemes:
 
@@ -74,10 +76,10 @@ print ("Runge-Kutta 4 finished.")
 
 plt.figure(5)
 
-plt.plot(sol_Euler[0, :], sol_Euler[1, :], color='blue', label='Orbit Euler Method')
-plt.plot(sol_inverse_euler[0, :], sol_inverse_euler[1, :], color='green', label='Orbit Inverse Euler Method')
-plt.plot(sol_cn[0, :], sol_cn[1, :], color='yellow', label='Orbit Crank-Nicolson Method')
-plt.plot(sol_rk4[0, :], sol_rk4[1, :], color='red', label='Orbit Runge-Kutta 4 Method')
+plt.plot(sol_Euler[:, 0], sol_Euler[:, 1], color='blue', label='Orbit Euler Method')
+plt.plot(sol_inverse_euler[:, 0], sol_inverse_euler[:, 1], color='green', label='Orbit Inverse Euler Method')
+plt.plot(sol_cn[:, 0], sol_cn[:, 1], color='yellow', label='Orbit Crank-Nicolson Method')
+plt.plot(sol_rk4[:, 0], sol_rk4[:, 1], color='red', label='Orbit Runge-Kutta 4 Method')
 
 plt.axis('equal')
 plt.xlabel('x')
@@ -91,7 +93,7 @@ plt.grid()
 
 plt.figure(1)
 
-plt.plot(sol_Euler[0, :], sol_Euler[1,:])
+plt.plot(sol_Euler[:, 0], sol_Euler[:,1])
 plt.axis('equal')
 plt.xlabel('x')
 plt.ylabel('y')     
@@ -103,7 +105,7 @@ plt.grid()
      
 plt.figure(2)
 
-plt.plot(sol_inverse_euler[0, :], sol_inverse_euler[1,:])
+plt.plot(sol_inverse_euler[:, 0], sol_inverse_euler[:, 1])
 plt.axis('equal')
 plt.xlabel('x')
 plt.ylabel('y')     
@@ -115,7 +117,7 @@ plt.grid()
 
 plt.figure(3)
 
-plt.plot(sol_cn[0, :], sol_cn[1,:])
+plt.plot(sol_cn[:, 0], sol_cn[:, 1])
 plt.axis('equal')
 plt.xlabel('x')
 plt.ylabel('y')     
@@ -127,7 +129,7 @@ plt.grid()
 
 plt.figure(4)
 
-plt.plot(sol_rk4[0, :], sol_rk4[1,:])
+plt.plot(sol_rk4[:, 0], sol_rk4[:, 1])
 plt.axis('equal')
 plt.xlabel('x')
 plt.ylabel('y')     
@@ -137,4 +139,5 @@ plt.grid()
 
 plt.show()
 
-      
+input("Press Enter to close all plots")  
+plt.close('all')

@@ -11,8 +11,8 @@ ________________________________________________________________________________
 Definition of different dynamic systems
 
     Inputs: 
-            U : state vector
-            t : array representing the time points at which the solution is computed
+           - U : state vector
+           - t : array representing the time points at which the solution is computed
             
     return: 
             1D array that characterizes each dynamic system

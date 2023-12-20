@@ -9,17 +9,17 @@ ________________________________________________________________________________
 Stability regions
 
     Inputs: 
-            x0, xf : Initial and final values for the x variable
-            y0, yf: Initial and final values for the y variable
-            N : number of points on the grid in the x and y directions. This parameter determines
-            the resolution of the grid
-            scheme : selected numerical method to solve the problem. Imported from Time_schemes.py 
+            - x0, xf : Initial and final values for the x variable
+            - y0, yf: Initial and final values for the y variable
+            - N : number of points on the grid in the x and y directions. This parameter determines
+                  the resolution of the grid
+            - scheme : selected numerical method to solve the problem. Imported from Time_schemes.py 
              
     return: 
-          rho: matrix of size (N, N) containing the absolute values of the solutions calculated by 
-          the numerical scheme
-          x: 1D array representing the grid in the x direction
-          y: 1D array representing the grid in the y direction
+            - rho: matrix of size (N, N) containing the absolute values of the solutions calculated by 
+                   the numerical scheme
+            - x: 1D array representing the grid in the x direction
+            - y: 1D array representing the grid in the y direction
           
 Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
 __________________________________________________________________________________________________

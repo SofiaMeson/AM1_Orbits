@@ -1,32 +1,70 @@
-######################################### ESTIMATING ERROS AND CONVERGENCE RATE ###############################################################################
+######################################### ESTIMATING ERRORS AND CONVERGENCE RATE OF THE SOLUTIONS ###########################################################
 
 ## This module includes two functions to calculate the error of the Cauchy problem programmed in the milestone 2 and the convergence rate of the solution ##
 
 
 from ODEs.Cauchy_Problem import Integrate_Cauchy
 from ODEs.Time_Schemes import Euler, EI, RK4, CN
-#from Physics.Kepler import Kepler
 from numpy import array, zeros, log10, ones, vstack, linspace 
 from numpy.linalg import norm, lstsq
 import matplotlib.pyplot as plt
 
+"""
+______________________________________________________________________________________________________________________________________________________________
+Definition of the function that represents differential operator in a Kepler orbit
+
+# Function 1: Richardson_Cauchy_Problem
+    Inputs: 
+            - t : array representing the time points at which the solution is computed
+            - F : represents the  differential operator. Imported from Kepler.py, Nbody_functions.py, 
+                  Oscillator.py or, in the case of the circular restricted 3 body problem, it uses
+                  the F defined in Milestone_6.py
+            - scheme : selected temporal scheme
+            - order : 1 for Euler, 2 for Inverse Euler and Crank-Nicolson and 4 for Runge-Kutta order 4. The code automatically applies it.
+            - U : state vector
  
-# This function evaluates errors of numerical integration by mmeans of Richardson extrapolation, based on the Cauchy problem solution implemented in milestone 2.
+    return: 
+            - cauchy_error : result of evaluating the error
+            - sol_cauchy : corrected Cauchy problem's solution, applying the error evaluation
+            
+# Function 2: Temporal_Convergence_Rate
+    Inputs: 
+            - t : array representing the time points at which the solution is computed
+            - F : represents the  differential operator. Imported from Kepler.py, Nbody_functions.py, 
+                  Oscillator.py or, in the case of the circular restricted 3 body problem, it uses
+                  the F defined in Milestone_6.py
+            - U : state vector
+            - scheme : selected temporal scheme
+            - m : number of points in the graph (originally set to 5)
+
+ 
+    return: 
+            - order : slope. This is the convergence rate
+            - log_E : log of the mathematical errors
+            - log_N : log with the lenght of the time domain
+
+          
+Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
+______________________________________________________________________________________________________________________________________________________________
+
+"""
+ 
+## This function evaluates errors of numerical integration by mmeans of Richardson extrapolation, based on the Cauchy problem solution implemented in Milestone 2
 
 def Richardson_Cauchy_Problem(t, F, scheme, order, U_0 ):  
    
 # Means of Richardson extrapolation (using two grids, one being the double of the other one):
           
-       N = len(t) - 1                       # number of columns
-       Nv = len(U_0)                      # number of rows 
+       N = len(t) - 1                         # number of columns
+       Nv = len(U_0)                          # number of rows 
        cauchy_error = zeros((N + 1, Nv))      # array for Cauchy's error
        
-       t1 = t                             # time domain where the Cauchy problem will be calculated. This is the first grid.        
-       t2 = zeros(2*N+1)                  # time domain (lenght t2 = 2*t1) to evaluate the numerical integration's error. This is the second grid.
+       t1 = t                                 # time domain where the Cauchy problem will be calculated. This is the first grid       
+       t2 = zeros(2*N+1)                      # time domain (lenght t2 = 2*t1) to evaluate the numerical integration's error. This is the second grid
        
        
        
-       # As t2's lenght is the double of t1, its components can be defined with the following loop:
+       # As t2's lenght is the double of t1, its components can be defined using the following loop:
        
        for i in range (N):  
            t2[2*i] = t1[i] 
@@ -41,19 +79,21 @@ def Richardson_Cauchy_Problem(t, F, scheme, order, U_0 ):
   
        
        
-      # Evaluate the error between the two solutions and create an array to correct U1, the solution obtained for the desired time domain
+      # Evaluate the error between the two solutions and create an array to correct U1 (the solution obtained for the desired time domain):
+      
        for i in range (N+1):  
             cauchy_error[i,:] = (U2[2*i, :]- U1[i, :])/(1 - 1./(2**order)) 
         
       # Correct the solution by applying the error evaluation:
+      
        sol_cauchy = U1 + cauchy_error 
        
        return cauchy_error, sol_cauchy 
              
        
-# This function evaluates de convergence rate of different temporal schemes for numerical integration of, in this case, the Cauchy problem.
+# This function evaluates de convergence rate of different temporal schemes for numerical integration of, in this case, the Cauchy problem
 
-def Temporal_Convergence_Rate( t, F, U_0, scheme, m): 
+def Temporal_Convergence_Rate(t, F, U_0, scheme, m): 
      
       log_E = zeros(m)  #log of the mathematical errors
       log_N = zeros(m)  #log with the lenght of the time domain
@@ -66,11 +106,11 @@ def Temporal_Convergence_Rate( t, F, U_0, scheme, m):
      
 
       for i in range(m): 
-         # Similarly to the function to evalute the error, the Cauchy problem is solved for a different time domain, with lenght(t2)= 2*lenght(t1). 
-         # This means that the convergence rate is calculated by using two grids. 
-         N =  2*N                                              # New "N"
-         t2 = array( zeros(N+1) )                              # New time domain
-         t2[0:N+1:2] = t1                                      # t2's components are defined using this loop, similarly to the Cauchy error function
+         # Similarly to the function to evalute the error, the Cauchy problem is solved for a different time domain, with lenght(t2)= 2*lenght(t1) 
+         # This means that the convergence rate is calculated by using two grids
+         N =  2*N                                                   # New number of steps
+         t2 = array( zeros(N+1) )                                   # New time domain
+         t2[0:N+1:2] = t1                                           # t2's components are defined using this loop, similarly to the Cauchy error function
          t2[1:N:2] = (t1[1:int(N/2)+1] + t1[0:int(N/2)]) / 2   
          
          # The Cauchy problem is solved for t2 to later evaluate the convergence rate between the two solutions

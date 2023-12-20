@@ -1,4 +1,4 @@
-########### KEPLER EQUATION ###############
+######################################### KEPLER DIFF OPERATOR ####################################################
 
 from numpy import array
 
@@ -7,8 +7,8 @@ ________________________________________________________________________________
 Definition of the function that represents differential operator in a Kepler orbit
 
     Inputs: 
-            U : state vector (4 components)
-            t : array representing the time points at which the solution is computed
+           - U : state vector (4 components)
+           - t : array representing the time points at which the solution is computed
             
     return: 
             1D array that characterizes the Kepler orbit

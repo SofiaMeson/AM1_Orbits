@@ -1,3 +1,6 @@
+####################################### NBODY PROBLEM FUNCTIONS ############################################
+## Function to characterize the NBody problem with pointers ##
+
 from numpy import reshape, zeros
 from numpy.linalg import norm
 
@@ -16,13 +19,13 @@ interaction with other bodies.
 
 
    Inputs:
-           U : state vector for the N-body problem
-           t : array representing the time points at which the solution is computed
-           Nb : number of bodies in the N-body problem
-           Nc : number of coordinates for each body (normally, 3)
+          - U : state vector for the N-body problem
+          - t : array representing the time points at which the solution is computed
+          - Nb : number of bodies in the N-body problem
+          - Nc : number of coordinates for each body (normally, 3)
 
    Outputs:
-           F : array representing the derivatives of the state vector
+          - F : array representing the derivatives of the state vector
 
 
 Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023

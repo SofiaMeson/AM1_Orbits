@@ -11,10 +11,10 @@ def Newton(F, x0):
  ____________________________________________________________________
   Newton solver 
         Inputs: 
-                x0   : initial guess and output value 
-                F(X) : vector function  
+                - x0   : initial guess and output value 
+                - F(X) : vector function  
         return: 
-                x : solution (F(x)=0)
+                - x : solution (F(x)=0)
 
   Author: Juan A Hernandez (juanantonio.hernandez@upm.es) Oct 2022 
 _____________________________________________________________________

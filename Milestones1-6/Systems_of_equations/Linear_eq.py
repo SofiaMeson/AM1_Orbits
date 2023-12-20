@@ -10,10 +10,10 @@ def  Gauss(A, b):
  Method: Gauss elimination (with scaling and pivoting)
  
    Inputs: 
-          A : system matrix, 
-          b : independent term 
+         - A : system matrix, 
+         - b : independent term 
   return:
-          x 
+         - x 
           note: matrix A and b term are modified 
 
  Juan A. Hernandez, juanantonio.hernandez@upm.es (Oct 2022) 

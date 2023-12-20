@@ -18,28 +18,28 @@ Definition of the embedded Runge-Kutta program functions
     coefficients.
 
      Inputs:
-            order: integer representing the order of the Runge-Kutta method
-            U1 : current state vector
-            t : array representing the time points at which the solution is computed
-            dt : time step, determining the size of the time intervals between iterations
-            F : a function representing the  differential operator
+           - order: integer representing the order of the Runge-Kutta method
+           - U1 : current state vector
+           - t : array representing the time points at which the solution is computed
+           - dt : time step, determining the size of the time intervals between iterations
+           - F : a function representing the  differential operator
 
      Output:
-            U2 : state vector after one step of the Runge-Kutta method
+           - U2 : state vector after one step of the Runge-Kutta method
 
 
 # Function 2: StepSize
     This function computes the adaptive time step size 
      
      Inputs:
-             dU : 1D array representing the difference between two solutions
-             tol: specified tolerance
-             dt : current time step
-             orders : order of accuracy
+            - dU : 1D array representing the difference between two solutions
+            - tol: specified tolerance
+            - dt : current time step
+            - orders : order of accuracy
 
      Output:
-             step_size: adaptive time step size based on the error between two solutions, the specified tolerance,
-             and the orders of accuracy
+            - step_size: adaptive time step size based on the error between two solutions, the specified tolerance,
+                         and the orders of accuracy
 
 
 
@@ -48,12 +48,12 @@ Definition of the embedded Runge-Kutta program functions
  used in the `RK_stages` function to perform one step of the Runge-Kutta method
 
      Outputs:
-             orders: list of integers representing the orders of accuracy for the embedded Runge-Kutta method
-             Ns: integer representing the number of stages
-             a : 2D array containing the coefficients \(a\) for the Butcher array
-             b : 1D array containing the coefficients \(b\) for the Butcher array
-             bs : 1D array containing the coefficients \(b_s\) for the Butcher array
-             c : 1D array containing the coefficients \(c\) for the Butcher array
+             - orders: list of integers representing the orders of accuracy for the embedded Runge-Kutta method
+             - Ns: integer representing the number of stages
+             - a : 2D array containing the coefficients \(a\) for the Butcher array
+             - b : 1D array containing the coefficients \(b\) for the Butcher array
+             - bs : 1D array containing the coefficients \(b_s\) for the Butcher array
+             - c : 1D array containing the coefficients \(c\) for the Butcher array
           
 Author: Sofía Mesón Pérez (sofia.meson.perez@alumnos.upm.es) Dec 2023
 _________________________________________________________________________________________________________________
