@@ -38,7 +38,9 @@ This repository is divided into different files. All the Python programs have a 
 ## MILESTONES EXPLANATION
 
 - [**Milestone 2**](Milestone_2.py): "_Prototypes to integrate orbits with functions_"
+  
   In this program, the Cauchy problem is integraed using different time schemes. By only changing the time steps, it becomes clear that the Euler and inverse Euler temporal schemes require smaller dt (approximately of 0.001) to close the orbit and correctly integrate it.
+  
   Runge-Kutta and Crank-Nicolson solve the orbit correctly, providing a close and precise orbit for each of the dt provided. Smaller dt imply more precision, but with bigger dt they provide a good integration.
   
  <p align="center">
