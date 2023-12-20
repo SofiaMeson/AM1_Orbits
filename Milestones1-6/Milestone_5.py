@@ -46,6 +46,8 @@ v0[2, :] = [-0.4, 0., 0.]
 r0[3, :] = [0, -1, 0]       
 v0[3, :] = [0.4, 0., 0.]    
 
+# The user can also enter manually the initial conditions uncommenting the following code:
+
 # # Get the number of bodies from the user
 # Nb = int(input("Enter the number of bodies: "))
 

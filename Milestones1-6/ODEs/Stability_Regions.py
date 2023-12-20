@@ -42,7 +42,7 @@ def Stability_regions (scheme, N, x0, xf, y0, yf):
 
             rho[i, j] = abs(r) 
 
-    return rho, x, y 
+    return rho, x, y
 
 
 # This function tests the previous one, plotting the results for the different schemes
@@ -66,7 +66,7 @@ def test_Stability_regions():
         ax.grid()
         ax.set_title(f"Stability Region - {scheme_name}")
 
-    # Ajustar el espaciado entre subgráficos
+
     plt.tight_layout()
     plt.show()
 

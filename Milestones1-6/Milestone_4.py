@@ -1,4 +1,4 @@
-######################################### MILESTONE 4 ####################################################
+######################################### MILESTONE 4 ###########################################################
 ## Linear problems. Regions of absolute stability ##
 
 from ODEs.Cauchy_Problem import Integrate_Cauchy
@@ -8,6 +8,10 @@ from Physics.Oscillator import Oscillator
 from numpy import array, zeros, log10, ones, vstack, linspace, transpose 
 from numpy.linalg import norm, lstsq
 import matplotlib.pyplot as plt
+
+
+# This module integrates the linear oscillator d2x/dt2 + dx/dt = 0 with different temporal schemes
+# It also finds the absolute stability regions for the used temportal schemes
 
 #Initial conditions:
 
@@ -47,15 +51,16 @@ print(f"Initial position: x0={x0}, y0={y0}")
 print(f"Final position: xf={xf}, yf={yf}")
 
 
-# plt.figure()
-# rho, x, y  = Stability_regions(integration_method, n, x0, xf, y0, yf)
-# plt.contour( x, y, transpose(rho), linspace(0, 1, 11) )
-# plt.axis('equal')
-# plt.grid()
-
-
+print ("The stability regions for a solution that has an acceptable output are plotted (if the user wants to plot the ones obtained, they just need to change the parameters inside the code):")
 # As it becomes quite difficult to find an interval where the stability regions are clear, investigating the below range is 
 # considered acceptable.
+
+
+n = 100
+x0 = -4
+xf = 2
+y0 = -4
+yf = 4
 
 time_schemes = {
     Euler: "Euler",
@@ -69,13 +74,19 @@ fig, axes = plt.subplots(2, 3, figsize=(15, 8))
 axes = axes.flatten()
 
 for ax, (scheme, scheme_name) in zip(axes, time_schemes.items()):
-    #rho, x, y = Stability_regions(scheme, n, x0, xf, y0, yf)
-    rho, x, y = Stability_regions(scheme, 100, -4, 2, -4, 4)
+    rho, x, y = Stability_regions(scheme, n, x0, xf, y0, yf)
+    
+    # Plot stability region contours
     contour = ax.contour(x, y, transpose(rho), levels=linspace(0, 1, 11))
+    
+    # Plot eigenvalues at (0, ±dt)
+    ax.plot(0, dt, 'g+')
+    ax.plot(0, -dt, 'g+')
+    
     ax.axis('equal')
+    ax.set_title(scheme_name)
     ax.grid()
-    ax.set_title(f"Stability Region - {scheme_name}")
 
-# Ajustar el espaciado entre subgráficos
+
 plt.tight_layout()
 plt.show()
