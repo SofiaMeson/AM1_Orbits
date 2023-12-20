@@ -67,6 +67,7 @@ This repository is divided into different files. All the Python programs have a 
    The results are plotted for the initial conditions that provide clear plots for the stability regions.
 
      When observing the results, it becomes clear that:
+  
         - _Euler_: the Euler scheme's absolute stability region is a circunference with the center in (-1, 0) and with r=1. The eigenvalues fall in the imaginary axis, outside of the absolute stability region, so the Euler temporal scheme is not stable.
         - _Inverse Euler_: the eigenvalues are inside of the absolute stability region, specifically in the yellow circunference in the plot (with center (1,0) and r=1). The numeric solution is stable, as well as the system.
         - _Crank-Nicolson_: the absolute stability region is the negative real half-plane, which makes the system stable. The eigenvalues fall in the imaginary axis.
